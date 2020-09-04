@@ -63,7 +63,7 @@
      
     <div class="article-meta">
       <a href="/2020/09/04/Collection/" class="article-date">
-  <time datetime="2020-09-04T08:34:38.000Z" itemprop="datePublished">2020-09-04</time>
+  <time datetime="2020-09-04T09:51:33.000Z" itemprop="datePublished">2020-09-04</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
@@ -86,14 +86,15 @@
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>#Java知识点<br>##1、Collection  </p>
-<font size=4 face='黑体'>
+  <h1 id="Java知识点"><a href="#Java知识点" class="headerlink" title="Java知识点"></a>Java知识点</h1><h2 id="1、Collection"><a href="#1、Collection" class="headerlink" title="1、Collection"></a>1、Collection</h2><font size=4 face='黑体'>
 **集合类特点：** 提供一种存储空间可变的存储模型  
 
 <p><strong>Collection集合概述</strong>：  </p>
@@ -108,8 +109,8 @@ Collection<String> c = new ArrayList<String>();
 </pre></li>
 <li>具体的实现类ArrayList    </li>
 </ul>
-<p><strong>Collection常用方法</strong><br><img src="http://i1.fuimg.com/723620/7d5868fed8845d15.jpg" alt="Markdown">  </p>
-<p><strong>Collection集合体系</strong><br><img src="http://i1.fuimg.com/723620/67148aa9ad243740.jpg" alt="Markdown">  </p>
+<p><strong>Collection常用方法</strong><br><img src="https://github.com/Joanne972/IMG/raw/master/images/collection1.jpg" alt="Markdown">  </p>
+<p><strong>Collection集合体系</strong><br><img src="https://github.com/Joanne972/IMG/raw/master/images/collection.jpg" alt="Markdown">  </p>
 <p> Iterator：迭代器，集合的专用遍历方式  </p>
 <ul>
 <li>next（）：返回迭代中的下一个元素</li>
@@ -141,7 +142,9 @@ while(it.hasNext()){
  }</code></pre><p>  }</p>
 <p>}</p>
 <p></pre></p>
-<p>##2、List集合<br><font face='黑体' size=4><br><strong>概述</strong>  </p>
+<h2 id="2、List集合"><a href="#2、List集合" class="headerlink" title="2、List集合"></a>2、List集合</h2><font face='黑体' size=4>
+**概述**  
+
 <ul>
 <li>有序集合，用户可以精确控制列表中每个元素的插入位置，用户可以通过整数索引访问元素，并搜索列表中的元素。</li>
 <li>List存储的元素可以重复</li>
@@ -207,7 +210,7 @@ java
 <p><strong>List集合特有的方法</strong>  </p>
 <ul>
 <li>List集合的遍历<strong>可以用Iterator（跟其父类一样），用for循环,增强for循环（最方便）</strong>共三种方式。</li>
-<li>这些方法只有List集合及其子类有，Collection没有<br><img src="http://i2.tiimg.com/723620/bdbf73ad5f7ec3e8.png" alt="Markdown">  </li>
+<li>这些方法只有List集合及其子类有，Collection没有<br><img src="https://github.com/Joanne972/IMG/raw/master/images/3.png" alt="Markdown">  </li>
 </ul>
 <p><strong>并发修改异常</strong></p>
 <pre>
@@ -231,7 +234,7 @@ Iterator<String> it = list.iterator();
 <li><p>解决方案：用for循环遍历，用get(i)获取元素。  </p>
 </li>
 </ul>
-<p>##3、ListIterator列表迭代器<br><strong>概念：</strong>  是List集合特有的迭代器，通过list.listiterator()方法得到</p>
+<h2 id="3、ListIterator列表迭代器"><a href="#3、ListIterator列表迭代器" class="headerlink" title="3、ListIterator列表迭代器"></a>3、ListIterator列表迭代器</h2><p><strong>概念：</strong>  是List集合特有的迭代器，通过list.listiterator()方法得到</p>
 <p>*<font face='黑体'>与Iterator的不同点：  </font>*</p>
 <ul>
 <li>用于允许程序员<strong>沿任一方向</strong>遍历列表的列表迭代器</li>
@@ -251,15 +254,15 @@ System.oput.println(i);
 }
 </pre>
 
-<p>##5、数据结构之数组和链表</p>
-<ul>
+<h2 id="5、数据结构之数组和链表"><a href="#5、数据结构之数组和链表" class="headerlink" title="5、数据结构之数组和链表"></a>5、数据结构之数组和链表</h2><ul>
 <li>数组是一种<strong>查询快，增删慢</strong>的模型</li>
-<li>链表是一种<strong>查询慢，增删快</strong>的模型<br>##6、List集合子类的特点</li>
+<li>链表是一种<strong>查询慢，增删快</strong>的模型<h2 id="6、List集合子类的特点"><a href="#6、List集合子类的特点" class="headerlink" title="6、List集合子类的特点"></a>6、List集合子类的特点</h2></li>
 <li>ArrayList：底层数据结构是数组，查询快，增删慢  <strong>ArrayList<String> array = new ArrayList<String>();</strong></li>
 <li>LinkedList：底层数据结构是链表，查询慢，增删快 <strong>LinkedList<String> linkedList = new LinkedList<String>();</strong></li>
 </ul>
 <p><strong>LinkedList的特有功能</strong></p>
-<p><img src="http://i1.fuimg.com/723620/5f4d1eda9c3dafde.png" alt="Markdown"><br>##7、Set集合的概述和特点<br><strong>Set集合的特点</strong></p>
+<p><img src="https://github.com/Joanne972/IMG/raw/master/images/4.png" alt="Markdown"></p>
+<h2 id="7、Set集合的概述和特点"><a href="#7、Set集合的概述和特点" class="headerlink" title="7、Set集合的概述和特点"></a>7、Set集合的概述和特点</h2><p><strong>Set集合的特点</strong></p>
 <ul>
 <li>不包含重复元素</li>
 <li>没有带索引的方法，所以不能使用普通for循环遍历</li>
@@ -290,14 +293,14 @@ world
 java
 hello
 </pre>
-<p>##8、哈希值<br><strong>哈希值</strong>：是JDK根据对象的<strong>地址</strong>或者<strong>字符串</strong>或者<strong>数字</strong>算出来的int类型的数值</p>
+<h2 id="8、哈希值"><a href="#8、哈希值" class="headerlink" title="8、哈希值"></a>8、哈希值</h2><p><strong>哈希值</strong>：是JDK根据对象的<strong>地址</strong>或者<strong>字符串</strong>或者<strong>数字</strong>算出来的int类型的数值</p>
 <ul>
 <li><p>Object类可以通过<strong>hashCode（）</strong>返回对象的哈希码值</p>
 </li>
 <li><p>同一个对象多次调用hashCode（）方法，返回的哈希值是相同的</p>
 </li>
-<li><p>默认情况下，不同对象的哈希值是不同的<br>##9、HashSet集合的特点  </p>
-</li>
+<li><p>默认情况下，不同对象的哈希值是不同的</p>
+<h2 id="9、HashSet集合的特点"><a href="#9、HashSet集合的特点" class="headerlink" title="9、HashSet集合的特点"></a>9、HashSet集合的特点</h2></li>
 <li><p>底层数据结构是哈希表</p>
 </li>
 <li><p>对集合的迭代顺序不作任何保证，也就是说不保证存储和取出的元素顺序一致</p>
@@ -307,12 +310,11 @@ hello
 <li><p>由于是Set集合，所以是不包含重复元素的集合</p>
 </li>
 </ul>
-<p>##10、数据结构-哈希表</p>
-<ul>
+<h2 id="10、数据结构-哈希表"><a href="#10、数据结构-哈希表" class="headerlink" title="10、数据结构-哈希表"></a>10、数据结构-哈希表</h2><ul>
 <li>JDK8之前，底层采用<strong>数组+链表</strong>实现，可以说是一个元素为链表的数组。</li>
 <li>JDK8之后，在长度比较长的时候，底层实现了优化</li>
 </ul>
-<p><strong>先比对哈希值，再对比元素内容，如果两者都相同的话，该元素就不再需要重复存储</strong><br><img src="http://i1.fuimg.com/723620/ccf193a57501e4f4.png" alt="Markdown"></p>
+<p><strong>先比对哈希值，再对比元素内容，如果两者都相同的话，该元素就不再需要重复存储</strong><br><img src="https://github.com/Joanne972/IMG/raw/master/images/5.png" alt="Markdown"></p>
  
       <!-- reward -->
       
