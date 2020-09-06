@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    throw |  Hexo
+    异常 |  Hexo
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -55,7 +55,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  throw
+  异常
 </h1>
  
 
@@ -74,7 +74,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">957</span>
+            <span class="post-count">952</span>
         </span>
     </span>
 
@@ -98,13 +98,15 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>#Java知识点<br>##1、JVM默认异常处理<br><font size=4 face='黑体'><br>如果程序出现了问题，我们没有作任何处理，JVM默认处理  </p>
+  <h1 id="Java知识点"><a href="#Java知识点" class="headerlink" title="Java知识点"></a>Java知识点</h1><h2 id="1、JVM默认异常处理"><a href="#1、JVM默认异常处理" class="headerlink" title="1、JVM默认异常处理"></a>1、JVM默认异常处理</h2><font size=4 face='黑体'>  
+如果程序出现了问题，我们没有作任何处理，JVM默认处理  
+
 <ul>
 <li><p><strong>把异常的名称，异常原因以及异常出现的位置等信息输出在了控制台</strong>  </p>
 </li>
 <li><p><strong>程序停止执行</strong></p>
 </font>
-##2、异常处理try...catch..
+## 2、异常处理try...catch..
 <pre>
 try{
 可能导致异常的代码
@@ -120,26 +122,25 @@ catch(异常类名，变量名）{
 <pre>
 package test;
 public class ExceptionDemo01 {
+  public static void main(String[] args) {        
+      System.out.println("start");
+      method();
+      System.out.println("over");
+  }
+  public static void method() {
+      try {
+          int[] arr = { 1, 2, 3 };
+          System.out.println(arr[3]);
 
-<p>  public static void main(String[] args) {</p>
-<pre><code>System.out.println(&quot;start&quot;);
-method();
-System.out.println(&quot;over&quot;);</code></pre><p>  }</p>
-<p>  public static void method() {</p>
-<pre><code>try {
-    int[] arr = { 1, 2, 3 };
-    System.out.println(arr[3]);
-
-} catch (ArrayIndexOutOfBoundsException e) {
+<pre><code>} catch (ArrayIndexOutOfBoundsException e) {
     e.printStackTrace();
-}</code></pre><p>  }<br>}<br>//start<br>//java.lang.ArrayIndexOutOfBoundsException: 3<br>//over<br>//    at test.ExceptionDemo01.method(ExceptionDemo01.java:16)<br>//    at test.ExceptionDemo01.main(ExceptionDemo01.java:8)</p>
+}</code></pre><p>  }<br>}<br>//start<br>//java.lang.ArrayIndexOutOfBoundsException: 3<br>//over<br>//    at test.ExceptionDemo01.method(ExceptionDemo01.java:16)<br>//    at test.ExceptionDemo01.main(ExceptionDemo01.java:8)<br></pre>  </p>
+<h2 id="3、编译时异常和运行时异常"><a href="#3、编译时异常和运行时异常" class="headerlink" title="3、编译时异常和运行时异常"></a>3、编译时异常和运行时异常</h2><p>Java的异常分为两大类，编译时异常和运行时异常，或者叫做受检异常和非受检异常。所有的RuntimeException<br>类及其子类都叫做运行时异常，其他的异常都是编译时异常。  </p>
 </li>
-</ul>
-<p></pre><br>##3、编译时异常和运行时异常<br>Java的异常分为两大类，编译时异常和运行时异常，或者叫做受检异常和非受检异常。所有的RuntimeException<br>类及其子类都叫做运行时异常，其他的异常都是编译时异常。  </p>
-<ul>
 <li><p><strong>编译时异常，必须显示处理，否则程序就会出错，无法通过编译。</strong></p>
 </li>
-<li><p><strong>运行时异常，无需显示处理，也可以和编译时异常一样处理</strong><br>##4、异常处理之throws<br>并不是所有的情况我们都有权限用try…catch…进行异常的处理。有些时候，可能出现的异常是我们处理不了的<br>可以用throws这种方案。<br>throws 异常类名<br>写在方法的括号外面  </p>
+<li><p><strong>运行时异常，无需显示处理，也可以和编译时异常一样处理</strong></p>
+<h2 id="4、异常处理之throws"><a href="#4、异常处理之throws" class="headerlink" title="4、异常处理之throws"></a>4、异常处理之throws</h2><p>并不是所有的情况我们都有权限用try…catch…进行异常的处理。有些时候，可能出现的异常是我们处理不了的<br>可以用throws这种方案。<br>throws 异常类名<br>写在方法的括号外面  </p>
 </li>
 <li><p><strong>编译时异常必须进行处理，用try…catch…或者throws，如果用throws，将来谁调用谁处理</strong></p>
 </li>
@@ -157,7 +158,6 @@ public class ExceptionDemo02 {
    try {
       method2();
   } catch (ParseException e) {
-
       e.printStackTrace();
   }
    System.out.println("结束");
@@ -179,8 +179,8 @@ public static void method() throws ArrayIndexOutOfBoundsException{
 //Wed Jul 22 00:00:00 CST 2020
 //结束  
 </pre>  
-<p>只是代表可能出现异常，而不是一定会出现异常。<br>##5、Throwable的成员方法  </p>
-</li>
+<p>只是代表可能出现异常，而不是一定会出现异常。  </p>
+<h2 id="5、Throwable的成员方法"><a href="#5、Throwable的成员方法" class="headerlink" title="5、Throwable的成员方法"></a>5、Throwable的成员方法</h2></li>
 <li><p><strong>Public String getMessage() 返回此throwable的详细消息字符串</strong>  </p>
 </li>
 <li><p><strong>public String toSring() 返回此可抛出的简短描述</strong>  </p>
@@ -228,35 +228,27 @@ public class Teacher {
       else
           System.out.println("分数正常");
   }
-
-</li>
-</ul>
-<p>}<br></pre></p>
+}
+</pre>
 <pre>
 package test;
 import java.util.Scanner;
 public class TeacherTest {
-    public static void main(String[] args) {
-        Scanner sc =new Scanner(System.in);
-        System.out.println("请输入分数");
-        int score=sc.nextInt();        
-        Teacher t = new Teacher();
-        try {
-            t.checkScore(score);
-        } catch (ScoreException e) {            
-                e.printStackTrace();
-        }
-    }
+  public static void main(String[] args) {
+      Scanner sc =new Scanner(System.in);
+      System.out.println("请输入分数");
+      int score=sc.nextInt();        
+      Teacher t = new Teacher();
+      try {
+          t.checkScore(score);
+      } catch (ScoreException e) {            
+              e.printStackTrace();
+      }
+  }
 
-}
-
-//请输入分数
-//120
-//test.ScoreException: 你输入的分数有误
-//    at test.Teacher.checkScore(Teacher.java:7)
-//    at test.TeacherTest.main(TeacherTest.java:14)
-</pre>
-
+</li>
+</ul>
+<p>}<br>//请输入分数<br>//120<br>//test.ScoreException: 你输入的分数有误<br>//    at test.Teacher.checkScore(Teacher.java:7)<br>//    at test.TeacherTest.main(TeacherTest.java:14)<br></pre></p>
  
       <!-- reward -->
       
@@ -331,9 +323,9 @@ public class TeacherTest {
   <nav class="article-nav">
     
     
-      <a href="/2020/07/04/Collection/" class="article-nav-link">
+      <a href="/2020/07/28/throw11/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Collection</div>
+        <div class="article-nav-title">异常</div>
       </a>
     
   </nav>
