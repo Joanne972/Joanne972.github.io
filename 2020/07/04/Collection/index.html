@@ -117,40 +117,36 @@ Collection<String> c = new ArrayList<String>();
 <p><strong>Collection集合体系</strong><br><img src="https://github.com/Joanne972/IMG/raw/master/images/collection.jpg" alt="Markdown">  </p>
 <p> Iterator：迭代器，集合的专用遍历方式  </p>
 <ul>
-<li><p>next（）：返回迭代中的下一个元素</p>
-</li>
-<li><p>hasNext（）：如果迭代具有更多元素，则返回true  </p>
-<pre>
+<li>next（）：返回迭代中的下一个元素</li>
+<li>hasNext（）：如果迭代具有更多元素，则返回true  <pre>
 package test;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-public class IteratorDemo {
-
-  public static void main(String[] args) {
-
-  //创建集合对象
-  Collection<String> c = new ArrayList<String>();
-
-  //添加元素
-  c.add("hello");
-  c.add("world");
-  c.add("java");
-
-  //返回此集合中元素的迭代器
-  Iterator<String> it=c.iterator();
-
-  while(it.hasNext()){
-
-      String s = it.next();
-      System.out.println(s);        
-   }
-}
-}
-</pre>
 
 </li>
 </ul>
+<p>public class IteratorDemo {</p>
+<pre><code>public static void main(String[] args) {
+
+//创建集合对象
+Collection&lt;String&gt; c = new ArrayList&lt;String&gt;();
+
+//添加元素
+c.add(&quot;hello&quot;);
+c.add(&quot;world&quot;);
+c.add(&quot;java&quot;);
+
+//返回此集合中元素的迭代器
+Iterator&lt;String&gt; it=c.iterator();
+
+while(it.hasNext()){
+
+    String s = it.next();
+    System.out.println(s);
+
+ }</code></pre><p>  }</p>
+<p>}<br></pre></p>
 <h2 id="2、List集合"><a href="#2、List集合" class="headerlink" title="2、List集合"></a>2、List集合</h2><font face='黑体' size=4>
 **概述**  
 

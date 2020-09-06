@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    categories |  Hexo
+    throw |  Hexo
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -44,8 +44,8 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="page-"
-  class="article article-type-page"
+  id="post-throw"
+  class="article article-type-post"
   itemscope
   itemprop="blogPost"
   data-scroll-reveal
@@ -55,15 +55,202 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  categories
+  throw
 </h1>
  
 
     </header>
-       
+     
+    <div class="article-meta">
+      <a href="/2020/09/06/throw/" class="article-date">
+  <time datetime="2020-09-06T03:37:05.000Z" itemprop="datePublished">2020-09-06</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">961</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">4 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <p>#Java知识点<br>##1、JVM默认异常处理<br><font size=4 face='黑体'><br>如果程序出现了问题，我们没有作任何处理，JVM默认处理  </p>
+<ul>
+<li><strong>把异常的名称，异常原因以及异常出现的位置等信息输出在了控制台</strong>  </li>
+<li><strong>程序停止执行</strong></font>
+##2、异常处理try...catch..
+<pre>
+try{
+可能导致异常的代码
+}
+catch(异常类名，变量名）{
+异常的处理代码
+}
+</pre>
+<font face='黑体' size=4>
+执行流程:  
+程序从try里面的代码开始执行，出现异常，会自动生成一个异常类对象，该对象将会自动提交给Java运行时系统。  
+当Java运行时系统接收到异常对象时，会到catch中去找匹配的异常类。找到后进行异常的处理，执行完毕后，程序还可以继续往下执行。
+<pre>
+package test;
+
+</li>
+</ul>
+<p>public class ExceptionDemo01 {</p>
+<pre><code>public static void main(String[] args) {
+
+    System.out.println(&quot;start&quot;);
+    method();
+    System.out.println(&quot;over&quot;);
+}
+
+public static void method() {
+    try {
+        int[] arr = { 1, 2, 3 };
+        System.out.println(arr[3]);
+
+    } catch (ArrayIndexOutOfBoundsException e) {
+        e.printStackTrace();
+    }
+
+}</code></pre><p>}<br>//start<br>//java.lang.ArrayIndexOutOfBoundsException: 3<br>//over<br>//    at test.ExceptionDemo01.method(ExceptionDemo01.java:16)<br>//    at test.ExceptionDemo01.main(ExceptionDemo01.java:8)</p>
+<p></pre><br>##3、编译时异常和运行时异常<br>Java的异常分为两大类，编译时异常和运行时异常，或者叫做受检异常和非受检异常。所有的RuntimeException<br>类及其子类都叫做运行时异常，其他的异常都是编译时异常。  </p>
+<ul>
+<li><p><strong>编译时异常，必须显示处理，否则程序就会出错，无法通过编译。</strong></p>
+</li>
+<li><p><strong>运行时异常，无需显示处理，也可以和编译时异常一样处理</strong><br>##4、异常处理之throws<br>并不是所有的情况我们都有权限用try…catch…进行异常的处理。有些时候，可能出现的异常是我们处理不了的<br>可以用throws这种方案。<br>throws 异常类名<br>写在方法的括号外面  </p>
+</li>
+<li><p><strong>编译时异常必须进行处理，用try…catch…或者throws，如果用throws，将来谁调用谁处理</strong></p>
+</li>
+<li><p><strong>运行时异常可以不处理，出现问题后，需要回来修改代码</strong></p>
+<pre>
+package test;
+
+</li>
+</ul>
+<p>import java.text.ParseException;<br>import java.text.SimpleDateFormat;<br>import java.util.Date;</p>
+<p>public class ExceptionDemo02 {</p>
+<pre><code>public static void main(String[] args) {
+    // TODO Auto-generated method stub
+ System.out.println(&quot;开始&quot;);
+ //method();
+ try {
+    method2();
+} catch (ParseException e) {
+
+    e.printStackTrace();
+}
+ System.out.println(&quot;结束&quot;);
+}</code></pre><p>//编译时异常<br>public static void method2() throws ParseException{<br>    String s=”2020-07-22”;<br>    SimpleDateFormat sdf = new SimpleDateFormat(“yyyy-MM-dd”);<br>    Date d = sdf.parse(s);<br>    System.out.println(d);<br>}<br>//运行时异常<br>public static void method() throws ArrayIndexOutOfBoundsException{<br>    int[] arr= {1,2,3};<br>    System.out.println(arr[3]);<br>}<br>}<br>//开始<br>//Wed Jul 22 00:00:00 CST 2020<br>//结束<br></pre><br>只是代表可能出现异常，而不是一定会出现异常。<br>##5、Throwable的成员方法  </p>
+<ul>
+<li><p><strong>Public String getMessage() 返回此throwable的详细消息字符串</strong>  </p>
+</li>
+<li><p><strong>public String toSring() 返回此可抛出的简短描述</strong>  </p>
+</li>
+<li><p><strong>public void priintStrackTrace() 把异常的错误信息输出在控制台</strong>  </p>
+<h2 id="6、自定义异常"><a href="#6、自定义异常" class="headerlink" title="6、自定义异常"></a>6、自定义异常</h2><pre>
+public class ScoreException extends Exception{
+public ScoreException(){}//无参构造
+public ScoreException(String message){//带参构造
+super(message);
+}
+}
+</pre>
+<h2 id="7、throws-和-throw-的区别"><a href="#7、throws-和-throw-的区别" class="headerlink" title="7、throws 和 throw 的区别"></a>7、throws 和 throw 的区别</h2></li>
+<li><p><em>throws*</em>：  </p>
+</li>
+<li><p>用在方法声明后面，跟的是异常类名</p>
+</li>
+<li><p>表示抛出异常，谁调用谁处理该异常</p>
+</li>
+<li><p>表示出现异常的一种可能性，并不一定会发生这些异常  </p>
+</li>
+</ul>
+<p><strong>throw</strong>：</p>
+<ul>
+<li>用在方法体内，跟的是异常对象名</li>
+<li>表示抛出异常，由方法体内的语句处理</li>
+<li>执行throw一定抛出了某种异常  <pre>
+package test;
+
+</li>
+</ul>
+<p>public class ScoreException extends Exception{<br>    public ScoreException() {</p>
+<pre><code>}
+public ScoreException(String message) {
+    super(message);
+}</code></pre><p>}</p>
+<p></pre></p>
+<pre>
+package test;
+
+public class Teacher {
+
+    public void checkScore(int score) throws ScoreException{
+        if(score < 0 || score > 100) {
+            throw new ScoreException("你输入的分数有误");
+
+        }
+        else
+            System.out.println("分数正常");
+    }
+
+}
+</pre>
+<pre>
+package test;
+
+import java.util.Scanner;
+
+public class TeacherTest {
+
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        System.out.println("请输入分数");
+        int score=sc.nextInt();
+
+        Teacher t = new Teacher();
+        try {
+            t.checkScore(score);
+        } catch (ScoreException e) {
+
+            e.printStackTrace();
+        }
+
+    }
+
+}
+
+//请输入分数
+//120
+//test.ScoreException: 你输入的分数有误
+//    at test.Teacher.checkScore(Teacher.java:7)
+//    at test.TeacherTest.main(TeacherTest.java:14)
+</pre> 
       <!-- reward -->
       
     </div>
@@ -125,7 +312,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/categories/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/09/06/throw/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -134,6 +321,16 @@
   </div>
 
    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/07/19/hello-world/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Hello World</div>
+      </a>
+    
+  </nav>
+
    
 <!-- valine评论 -->
 <div id="vcomments-box">
@@ -183,7 +380,7 @@
 </style>
 
  
-   
+     
 </article>
 
 </section>
@@ -314,6 +511,23 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
