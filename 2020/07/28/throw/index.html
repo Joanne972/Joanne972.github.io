@@ -74,7 +74,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">961</span>
+            <span class="post-count">957</span>
         </span>
     </span>
 
@@ -100,8 +100,10 @@
        
   <p>#Java知识点<br>##1、JVM默认异常处理<br><font size=4 face='黑体'><br>如果程序出现了问题，我们没有作任何处理，JVM默认处理  </p>
 <ul>
-<li><strong>把异常的名称，异常原因以及异常出现的位置等信息输出在了控制台</strong>  </li>
-<li><strong>程序停止执行</strong></font>
+<li><p><strong>把异常的名称，异常原因以及异常出现的位置等信息输出在了控制台</strong>  </p>
+</li>
+<li><p><strong>程序停止执行</strong></p>
+</font>
 ##2、异常处理try...catch..
 <pre>
 try{
@@ -117,27 +119,22 @@ catch(异常类名，变量名）{
 当Java运行时系统接收到异常对象时，会到catch中去找匹配的异常类。找到后进行异常的处理，执行完毕后，程序还可以继续往下执行。
 <pre>
 package test;
+public class ExceptionDemo01 {
 
+<p>  public static void main(String[] args) {</p>
+<pre><code>System.out.println(&quot;start&quot;);
+method();
+System.out.println(&quot;over&quot;);</code></pre><p>  }</p>
+<p>  public static void method() {</p>
+<pre><code>try {
+    int[] arr = { 1, 2, 3 };
+    System.out.println(arr[3]);
+
+} catch (ArrayIndexOutOfBoundsException e) {
+    e.printStackTrace();
+}</code></pre><p>  }<br>}<br>//start<br>//java.lang.ArrayIndexOutOfBoundsException: 3<br>//over<br>//    at test.ExceptionDemo01.method(ExceptionDemo01.java:16)<br>//    at test.ExceptionDemo01.main(ExceptionDemo01.java:8)</p>
 </li>
 </ul>
-<p>public class ExceptionDemo01 {</p>
-<pre><code>public static void main(String[] args) {
-
-    System.out.println(&quot;start&quot;);
-    method();
-    System.out.println(&quot;over&quot;);
-}
-
-public static void method() {
-    try {
-        int[] arr = { 1, 2, 3 };
-        System.out.println(arr[3]);
-
-    } catch (ArrayIndexOutOfBoundsException e) {
-        e.printStackTrace();
-    }
-
-}</code></pre><p>}<br>//start<br>//java.lang.ArrayIndexOutOfBoundsException: 3<br>//over<br>//    at test.ExceptionDemo01.method(ExceptionDemo01.java:16)<br>//    at test.ExceptionDemo01.main(ExceptionDemo01.java:8)</p>
 <p></pre><br>##3、编译时异常和运行时异常<br>Java的异常分为两大类，编译时异常和运行时异常，或者叫做受检异常和非受检异常。所有的RuntimeException<br>类及其子类都叫做运行时异常，其他的异常都是编译时异常。  </p>
 <ul>
 <li><p><strong>编译时异常，必须显示处理，否则程序就会出错，无法通过编译。</strong></p>
@@ -149,24 +146,41 @@ public static void method() {
 <li><p><strong>运行时异常可以不处理，出现问题后，需要回来修改代码</strong></p>
 <pre>
 package test;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+public class ExceptionDemo02 {
+  public static void main(String[] args) {
+      // TODO Auto-generated method stub
+   System.out.println("开始");
+   //method();
+   try {
+      method2();
+  } catch (ParseException e) {
 
-</li>
-</ul>
-<p>import java.text.ParseException;<br>import java.text.SimpleDateFormat;<br>import java.util.Date;</p>
-<p>public class ExceptionDemo02 {</p>
-<pre><code>public static void main(String[] args) {
-    // TODO Auto-generated method stub
- System.out.println(&quot;开始&quot;);
- //method();
- try {
-    method2();
-} catch (ParseException e) {
-
-    e.printStackTrace();
+      e.printStackTrace();
+  }
+   System.out.println("结束");
+  }
+//编译时异常
+public static void method2() throws ParseException{
+  String s="2020-07-22";
+  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+  Date d = sdf.parse(s);
+  System.out.println(d);
 }
- System.out.println(&quot;结束&quot;);
-}</code></pre><p>//编译时异常<br>public static void method2() throws ParseException{<br>    String s=”2020-07-22”;<br>    SimpleDateFormat sdf = new SimpleDateFormat(“yyyy-MM-dd”);<br>    Date d = sdf.parse(s);<br>    System.out.println(d);<br>}<br>//运行时异常<br>public static void method() throws ArrayIndexOutOfBoundsException{<br>    int[] arr= {1,2,3};<br>    System.out.println(arr[3]);<br>}<br>}<br>//开始<br>//Wed Jul 22 00:00:00 CST 2020<br>//结束<br></pre><br>只是代表可能出现异常，而不是一定会出现异常。<br>##5、Throwable的成员方法  </p>
-<ul>
+//运行时异常
+public static void method() throws ArrayIndexOutOfBoundsException{
+  int[] arr= {1,2,3};
+  System.out.println(arr[3]);
+}
+}
+//开始
+//Wed Jul 22 00:00:00 CST 2020
+//结束  
+</pre>  
+<p>只是代表可能出现异常，而不是一定会出现异常。<br>##5、Throwable的成员方法  </p>
+</li>
 <li><p><strong>Public String getMessage() 返回此throwable的详细消息字符串</strong>  </p>
 </li>
 <li><p><strong>public String toSring() 返回此可抛出的简短描述</strong>  </p>
@@ -196,51 +210,42 @@ super(message);
 <li>表示抛出异常，由方法体内的语句处理</li>
 <li>执行throw一定抛出了某种异常  <pre>
 package test;
-
-</li>
-</ul>
-<p>public class ScoreException extends Exception{<br>    public ScoreException() {</p>
-<pre><code>}
-public ScoreException(String message) {
-    super(message);
-}</code></pre><p>}</p>
-<p></pre></p>
-<pre>
-package test;
-
-public class Teacher {
-
-    public void checkScore(int score) throws ScoreException{
-        if(score < 0 || score > 100) {
-            throw new ScoreException("你输入的分数有误");
-
-        }
-        else
-            System.out.println("分数正常");
-    }
-
+public class ScoreException extends Exception{
+  public ScoreException() {
+  }
+  public ScoreException(String message) {
+      super(message);
+  }
 }
 </pre>
 <pre>
 package test;
+public class Teacher {    
+  public void checkScore(int score) throws ScoreException{
+      if(score < 0 || score > 100) {
+          throw new ScoreException("你输入的分数有误");            
+      }
+      else
+          System.out.println("分数正常");
+  }
 
+</li>
+</ul>
+<p>}<br></pre></p>
+<pre>
+package test;
 import java.util.Scanner;
-
 public class TeacherTest {
-
     public static void main(String[] args) {
         Scanner sc =new Scanner(System.in);
         System.out.println("请输入分数");
-        int score=sc.nextInt();
-
+        int score=sc.nextInt();        
         Teacher t = new Teacher();
         try {
             t.checkScore(score);
-        } catch (ScoreException e) {
-
-            e.printStackTrace();
+        } catch (ScoreException e) {            
+                e.printStackTrace();
         }
-
     }
 
 }
@@ -251,6 +256,7 @@ public class TeacherTest {
 //    at test.Teacher.checkScore(Teacher.java:7)
 //    at test.TeacherTest.main(TeacherTest.java:14)
 </pre>
+
  
       <!-- reward -->
       
