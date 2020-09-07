@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Archives |  Hexo
+    Linux01 |  Hexo
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -43,92 +43,214 @@
       
     <main class="content on">
       <section class="outer">
-  <article class="articles">
+  <article
+  id="post-Linux01"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">Archives</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2020" class="archive-year">2020</a>
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Linux01
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/09/07/Linux01/" class="article-date">
+  <time datetime="2020-09-07T04:21:08.455Z" itemprop="datePublished">2020-09-07</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">786</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">2 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/07/Linux01/" class="archive-article-date">
-  <time datetime="2020-09-07T04:21:08.455Z" itemprop="datePublished">09/07</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/09/07/Linux01/"
-    >Linux01</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/28/%E5%BC%82%E5%B8%B8/" class="archive-article-date">
-  <time datetime="2020-07-28T03:37:05.000Z" itemprop="datePublished">07/28</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/07/28/%E5%BC%82%E5%B8%B8/"
-    >异常</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/04/Collection/" class="archive-article-date">
-  <time datetime="2020-07-04T10:12:22.000Z" itemprop="datePublished">07/04</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/07/04/Collection/"
-    >集合</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="Linux磁盘情况查询"><a href="#Linux磁盘情况查询" class="headerlink" title="Linux磁盘情况查询"></a>Linux磁盘情况查询</h1><h2 id="1、分区方式"><a href="#1、分区方式" class="headerlink" title="1、分区方式"></a>1、分区方式</h2><font size=4 face='黑体'>
+mbr分区:  
+1.最多支持四个主分区  
+2.系统只能安装在主分区  
+3.扩展分区要占一个主分区  
+4.MBR最大只支持2TB，但拥有最好的兼容性
+
+<p>gtp分区:<br>1.支持无限多个主分区（但操作系统可能限制，比如 windows下最多128个分区）<br>2.最大支持18EB的大容量（1EB=1024 PB，1PB=1024 TB ）<br>3.windows7 64位以后支持gtp<br></font><br><img src="https://github.com/Joanne972/IMG/blob/master/images/linux%E5%88%86%E5%8C%BA1.png" alt="Markdown"> </p>
+<h2 id="2、Linux分区"><a href="#2、Linux分区" class="headerlink" title="2、Linux分区"></a>2、Linux分区</h2><font size=4 face='黑体'>  
+1)对Linux来说无论有几个分区，分给哪一目录使用，**它归根结底就只有一个根目录**，一个独立且唯一的文件结构 , Linux中每个分区都是用来组成整个文件系统的一部分。  
+
+<p>2）Linux采用了一种叫<strong>“载入(mount)”</strong>的处理方法，它的整个文件系统中包含了一整套的文件和目录，且将一个分区和一个目录联系起来。这时要载入的一个分区将使它的存储空间在一个目录下获得。  </font><br><img src="https://github.com/Joanne972/IMG/blob/master/images/Linux%E5%88%86%E5%8C%BA2.png" alt="Markdown">   </p>
+<h2 id="3、硬盘说明"><a href="#3、硬盘说明" class="headerlink" title="3、硬盘说明"></a>3、硬盘说明</h2><font size=4 face='黑体'>   
+1）Linux硬盘分IDE硬盘和SCSI硬盘，目前基本上是SCSI硬盘  
+
+<p>2）对于IDE硬盘，驱动器标识符为“hdx<del>”,其中“hd”表明分区所在设备的类型，这里是指IDE硬盘了。“x”为盘号（a为基本盘，b为基本从属盘，c为辅助主盘，d为辅助从属盘）,“</del>”代表分区，前四个分区用数字1到4表示，它们是主分区或扩展分区，从5开始就是逻辑分区。例，<strong>hda3表示为第一个IDE硬盘上的第三个主分区或扩展分区</strong>,hdb2表示为第二个IDE硬盘上的第二个主分区或扩展分区。 </p>
+<p>3）对于SCSI硬盘则标识为“sdx~”，SCSI硬盘是用“sd”来表示分区所在设备的类型的，其余则和IDE硬盘的表示方法一样。<strong>sdb1 [表示第2块scsi 硬盘的第1个分区]</strong>  </p>
+<h2 id="4、查看所有设备-光驱-media，u盘，-硬盘-挂载情况"><a href="#4、查看所有设备-光驱-media，u盘，-硬盘-挂载情况" class="headerlink" title="4、查看所有设备(光驱 /media，u盘， 硬盘)挂载情况"></a>4、查看所有设备(光驱 /media，u盘， 硬盘)挂载情况</h2><p><strong>命令 ：lsblk  或者 lsblk -f</strong><br><img src="https://github.com/Joanne972/IMG/blob/master/images/linux%E5%88%86%E5%8C%BA3.png" alt="Markdown"> </p>
+<h2 id="5、磁盘情况查询"><a href="#5、磁盘情况查询" class="headerlink" title="5、磁盘情况查询"></a>5、磁盘情况查询</h2><p>1）<strong>查询系统整体磁盘使用情况</strong><br>  <strong>df -h</strong><br><img src="https://github.com/Joanne972/IMG/blob/master/images/Linux%E5%88%86%E5%8C%BA4.png" alt="Markdown"><br>2)<strong>查询指定目录的磁盘占用情况</strong><br>基本语法<br>  du -h  /目录 查询指定目录的磁盘占用情况，默认为当前目录<br>   -s 指定目录占用大小汇总<br>   -h 带计量单位<br>   -a 含文件<br>   –max-depth=1  子目录深度<br>   -c 列出明细的同时，增加汇总值<br>3)<strong>应用实例</strong><br>查询 /usr目录的磁盘占用情况，深度为1<br> du  -ach  –max-depth= 1  /usr<br><img src="https://github.com/Joanne972/IMG/blob/master/images/Linux%E5%88%86%E5%8C%BA5.png" alt="Markdown"></p>
+<h2 id="6、磁盘情况-工作实用指令"><a href="#6、磁盘情况-工作实用指令" class="headerlink" title="6、磁盘情况-工作实用指令"></a>6、磁盘情况-工作实用指令</h2><p><strong>1)统计/home文件夹下文件的个数</strong><br>ls –l /home/ | grep “^-” | wc -l </p>
+<p><strong>2)统计/home文件夹下目录的个数</strong><br>ls –l /home/ | grep “^d” | wc -l </p>
+<p><strong>3)统计/home文件夹下文件的个数，包括子文件夹里的</strong><br>ls –lR /home/ | grep “^-” | wc -l  </p>
+<p><strong>4)统计/home文件夹下目录的个数，包括子文件夹里的</strong><br>ls –lR /home/ | grep “^d” | wc -l  </p>
+<p><strong>5）以树状显示home目录结构  [没有tree指令咋办, 使用yum 来安装]</strong><br>先安装<br>yum install tree<br><img src="https://github.com/Joanne972/IMG/blob/master/images/Linux%E5%88%86%E5%8C%BA6.png" alt="Markdown">   </p>
+ 
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
+    
 
-  
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/09/07/Linux01/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/07/28/%E5%BC%82%E5%B8%B8/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">异常</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "",
+    app_key: "",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -244,6 +366,23 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
